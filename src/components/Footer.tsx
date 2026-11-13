@@ -1,7 +1,7 @@
 import React from 'react';
 import { portfolioData } from '../data/portfolioData';
-import { ArrowUp, Mail } from 'lucide-react';
-import { GithubIcon, LinkedinIcon, TwitterIcon } from './SocialIcons';
+import { ArrowUp, Mail, Phone } from 'lucide-react';
+import { GithubIcon, LinkedinIcon } from './SocialIcons';
 
 interface FooterProps {
   darkMode: boolean;
@@ -30,11 +30,11 @@ export const Footer: React.FC<FooterProps> = ({ darkMode }) => {
                 darkMode ? 'text-white' : 'text-slate-900'
               }`}
             >
-              {personal.name.split(' ')[0]}
+              {personal.name}
               <span className="text-indigo-500">.dev</span>
             </a>
             <p className="text-xs">
-              © {new Date().getFullYear()} {personal.name}. All rights reserved.
+              © {new Date().getFullYear()} {personal.name} • Bengaluru, India. All rights reserved.
             </p>
           </div>
 
@@ -63,17 +63,6 @@ export const Footer: React.FC<FooterProps> = ({ darkMode }) => {
               <LinkedinIcon className="w-4 h-4" />
             </a>
             <a
-              href={personal.social.twitter}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Twitter"
-              className={`p-2 rounded-lg transition-colors ${
-                darkMode ? 'hover:text-white hover:bg-slate-800' : 'hover:text-slate-900 hover:bg-slate-200'
-              }`}
-            >
-              <TwitterIcon className="w-4 h-4" />
-            </a>
-            <a
               href={personal.social.email}
               aria-label="Email"
               className={`p-2 rounded-lg transition-colors ${
@@ -82,12 +71,21 @@ export const Footer: React.FC<FooterProps> = ({ darkMode }) => {
             >
               <Mail className="w-4 h-4" />
             </a>
+            <a
+              href={personal.social.phone}
+              aria-label="Phone"
+              className={`p-2 rounded-lg transition-colors ${
+                darkMode ? 'hover:text-emerald-400 hover:bg-slate-800' : 'hover:text-emerald-600 hover:bg-slate-200'
+              }`}
+            >
+              <Phone className="w-4 h-4" />
+            </a>
           </div>
 
           {/* Back to top */}
           <div className="flex items-center gap-4">
             <span className="text-xs font-mono hidden sm:inline-block">
-              Designed for performance
+              Python • PostgreSQL • React • TS
             </span>
             <button
               onClick={scrollToTop}

@@ -1,34 +1,34 @@
 import React from 'react';
 import { portfolioData } from '../data/portfolioData';
-import { Code, Server, Database, Cloud, CheckCircle2, Award } from 'lucide-react';
+import { Server, Database, Code2, TestTube2, CheckCircle2, Award, GraduationCap } from 'lucide-react';
 
 interface AboutProps {
   darkMode: boolean;
 }
 
 export const About: React.FC<AboutProps> = ({ darkMode }) => {
-  const { personal } = portfolioData;
+  const { personal, education } = portfolioData;
 
   const pillars = [
     {
-      icon: Code,
-      title: 'Modern Frontend & UX',
-      description: 'Crafting responsive, accessible, component-driven interfaces using React, TypeScript, and modern styling architectures.'
-    },
-    {
       icon: Server,
-      title: 'Resilient Backend Systems',
-      description: 'Designing scalable microservices, REST & GraphQL endpoints, event-driven architectures, and high-throughput workflows.'
+      title: 'Python Backend & APIs',
+      description: 'Architecting clean RESTful services, transactional state machines, and RBAC authentication with Python, Flask, SQLAlchemy, and Pydantic.'
     },
     {
       icon: Database,
-      title: 'Data Modeling & Caching',
-      description: 'Structuring normalized & document databases with PostgreSQL, MongoDB, and Redis caching for ultra-low latency.'
+      title: 'Relational Schemas & Indexing',
+      description: 'Designing normalized (3NF) relational architectures with PostgreSQL & MySQL, eliminating N+1 queries and optimizing query latency through index tuning.'
     },
     {
-      icon: Cloud,
-      title: 'DevOps & Cloud Delivery',
-      description: 'Containerizing services with Docker, orchestrating continuous integration pipelines, and deploying automated cloud workloads.'
+      icon: Code2,
+      title: 'Type-Safe Frontend & Mobile',
+      description: 'Crafting responsive user interfaces and mobile applications using React, TypeScript, TanStack Query, Tailwind CSS, and React Native (Expo).'
+    },
+    {
+      icon: TestTube2,
+      title: 'Automated Testing & Reliability',
+      description: 'Enforcing deterministic logic and preventing regression bugs through comprehensive automated Pytest test suites and Postman API contract verification.'
     }
   ];
 
@@ -39,13 +39,13 @@ export const About: React.FC<AboutProps> = ({ darkMode }) => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 mb-3">
             <Award className="w-3.5 h-3.5" />
-            <span>About Me</span>
+            <span>Profile & Engineering Mindset</span>
           </div>
           <h2 className={`text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
-            Turning Complex Problems Into Elegant Code
+            High-Integrity Software with Strong CS Foundations
           </h2>
           <p className={`text-base sm:text-lg ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
-            A look into who I am, my software engineering background, and the engineering principles I live by.
+            A look into my background, core engineering principles, and focus on deterministic backend systems.
           </p>
         </div>
 
@@ -57,22 +57,24 @@ export const About: React.FC<AboutProps> = ({ darkMode }) => {
               darkMode ? 'bg-slate-900/40 border-slate-800' : 'bg-white border-slate-200 shadow-sm'
             }`}>
               <h3 className={`text-2xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
-                Engineering with empathy, performance, and durability.
+                Bridging rigorous relational logic with responsive modern interfaces.
               </h3>
               <p className={`leading-relaxed mb-4 ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
                 {personal.bio}
               </p>
               <p className={`leading-relaxed mb-6 ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>
-                Whether building user-facing web applications or mission-critical backend APIs, I prioritize maintainable architectures, test coverage, and documentation. I thrive in cross-functional environments where fast iterations meet reliable software practices.
+                Whether engineering a 19-state transaction state machine for fintech, optimizing traveling-salesperson algorithms for dynamic waste collection logistics, or building offline-first mobile ERP systems, I emphasize financial precision, index optimization, and automated test coverage.
               </p>
 
               {/* Highlights List */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4 border-t border-slate-800/40">
                 {[
-                  'Scalable Microservices & APIs',
-                  'Type-safe End-to-End Development',
-                  'CI/CD & Automated Testing',
-                  'Performance Optimization & Caching',
+                  'Zero Floating-Point Financial Precision',
+                  'Deterministic State Machines & RBAC',
+                  'Relational Schema Normalization & Indexing',
+                  'Automated Unit Testing with Pytest',
+                  'Asynchronous Pipelines & Clean REST APIs',
+                  'B.E. Computer Science Graduate (8.2 CGPA)'
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
@@ -107,6 +109,23 @@ export const About: React.FC<AboutProps> = ({ darkMode }) => {
                 </div>
               </div>
             ))}
+
+            {/* Quick Education Callout Box */}
+            <div className={`col-span-2 p-5 rounded-2xl border flex items-center gap-4 ${
+              darkMode ? 'bg-indigo-950/20 border-indigo-900/40' : 'bg-indigo-50/70 border-indigo-200'
+            }`}>
+              <div className="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 flex items-center justify-center shrink-0">
+                <GraduationCap className="w-5 h-5" />
+              </div>
+              <div>
+                <h4 className={`text-sm font-bold ${darkMode ? 'text-white' : 'text-slate-900'}`}>
+                  {education[0].degree}
+                </h4>
+                <p className={`text-xs ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
+                  {education[0].institution} • <strong className="text-indigo-400">{education[0].score}</strong>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 

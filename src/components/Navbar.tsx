@@ -17,7 +17,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
     { name: 'Skills', href: '#skills' },
     { name: 'Projects', href: '#projects' },
     { name: 'Terminal', href: '#terminal' },
-    { name: 'Experience', href: '#experience' },
+    { name: 'Experience & Education', href: '#experience' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -66,13 +66,13 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
               <TerminalIcon className="w-5 h-5" />
             </div>
             <span className={darkMode ? 'text-white' : 'text-slate-900'}>
-              {portfolioData.personal.name.split(' ')[0]}
+              {portfolioData.personal.name}
               <span className="text-indigo-500">.dev</span>
             </span>
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1 lg:gap-2">
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -93,7 +93,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
           </nav>
 
           {/* Controls & Actions */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden sm:flex items-center gap-3">
             {/* Theme Toggle Button */}
             <button
               onClick={() => setDarkMode(!darkMode)}
@@ -113,12 +113,12 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
               href="#contact"
               className="px-4 py-2 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500 hover:opacity-95 shadow-md shadow-indigo-500/25 transition-all transform hover:-translate-y-0.5"
             >
-              Let's Talk
+              Contact Me
             </a>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex items-center gap-2 md:hidden">
+          <div className="flex items-center gap-2 lg:hidden">
             <button
               onClick={() => setDarkMode(!darkMode)}
               className={`p-2 rounded-xl ${
@@ -145,7 +145,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
       {/* Mobile Drawer */}
       {isOpen && (
         <div
-          className={`md:hidden px-4 pt-2 pb-6 border-b transition-all ${
+          className={`lg:hidden px-4 pt-2 pb-6 border-b transition-all ${
             darkMode ? 'bg-slate-950/95 border-slate-800' : 'bg-white/95 border-slate-200'
           }`}
         >
