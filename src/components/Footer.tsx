@@ -31,7 +31,7 @@ export const Footer: React.FC<FooterProps> = ({ darkMode }) => {
               }`}
             >
               {personal.name}
-              <span className="text-indigo-500">.dev</span>
+              <span className="text-cyan-400">.dev</span>
             </a>
             <p className="text-xs">
               © {new Date().getFullYear()} {personal.name} • Bengaluru, India. All rights reserved.
@@ -85,7 +85,7 @@ export const Footer: React.FC<FooterProps> = ({ darkMode }) => {
           {/* Back to top */}
           <div className="flex items-center gap-4">
             <span className="text-xs font-mono hidden sm:inline-block">
-              Python • PostgreSQL • React • TS
+              Python • SQL • Web Technologies • Data Analysis
             </span>
             <button
               onClick={scrollToTop}
